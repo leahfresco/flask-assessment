@@ -1,0 +1,24 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block body %}
+<html>
+<head>
+    <title>Application Response</title>
+</head>
+<body>
+<h1>Thank you!</h1>
+<p>Thank you, {{firstname}} {{lastname}}, for applying to be a {{ job }} Engineer. Your
+minimum salary requirement is 
+{% if salary % 1 != 0 %} 
+    {{"${:,.2f}.".format(salary)}} 
+{% endif %}
+{% if salary % 1 == 0 %} 
+    {{"${:,.0f}.".format(salary)}} 
+{% endif %}
+</p>
+
+</body>
+</html>
+
+{% endblock %}

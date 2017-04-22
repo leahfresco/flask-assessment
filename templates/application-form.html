@@ -1,0 +1,31 @@
+<!doctype html>
+{% extends 'base.html' %}
+
+{% block body %}
+
+<html>
+<head>
+  <title>Application Form</title>
+  <link rel="stylesheet"
+      href="static/styles.css">
+</head>
+<body>
+<h1> Job Inquiry Form </h1>
+<p class="Explanation"> Please submit the following to send information to applicable companies: </p> 
+<form action="/application-success" method="POST">
+  <p class="firstname"> First Name: <input type="text" name="firstname"></p>
+  <p class="lastname">Last Name: <input type="text" name="lastname"></p>
+  <p class="salary">Salary Requirements: <input type="number" step="0.01" min="0" name="salary_req"></p>
+  <p>Job:
+  <select name="job">
+    {% for job in jobs %}
+    <option value={{ job }}>{{ job }}</option>
+    {% endfor %}
+  </select></p>
+  <p><input type="submit" value="Submit!" class="button"></p>
+</form>
+
+</body>
+</html>
+
+{% endblock %}
